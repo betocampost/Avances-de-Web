@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+} 
+
+.contenedor1{
+    width: 95%;
+    margin: 20px auto;
+    
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+    
+    grid-template-areas: "contenido contenido sidebar"
+                         "contenido contenido sidebar"
+                         "contenido contenido sidebar";
+}
+
+.contenedor1 > div, 
+.contenedor1 .contenido, 
+.contenedor1 .sidebar {
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.contenedor1 .contenido{
+    grid-area: contenido;
+}
+
+.contenedor1 .sidebar{
+    grid-area: sidebar;
+    text-align: center;
+    /*min-height: 100px;*/
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.contenedor2{
+    width: 95%;
+    margin: 20px auto;
+    
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+    
+    grid-template-areas: "cont1 cont1 widget-1"
+                         "widget-2 cont2 cont2"
+                         "cont3 cont3 widget-3 ";
+}
+
+.contenedor2 > div, 
+.contenedor2 .cont1, 
+.contenedor2 .cont2,
+.contenedor2 .cont3,
+.contenedor2 .widget-1,
+.contenedor2 .widget-2
+.contenedor2 .widget-3 {
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.contenedor2 .cont1{
+    grid-area: cont1;
+}
+
+.contenedor2 .cont2{
+    grid-area: cont2;
+}
+
+.contenedor2 .cont3{
+    grid-area: cont3;
+}
+.contenedor2 .widget-1,
+.contenedor2 .widget-2,
+.contenedor2 .widget-3{
+    color: crimson;
+    text-align: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor2 .widget-1{
+    grid-area: widget-1;
+}
+
+.contenedor2 .widget-2{
+    grid-area: widget-2;
+}
+
+.contenedor2 .widget-3{
+    grid-area: widget-3;
+}
+
+@media screen and (max-width: 768px){
+    @media screen and (max-width: 768px){
+    /*body{
+        background-color: black;
+    }*/
+    .contenedor1{
+         grid-template-areas: "contenido contenido contenido"
+                             "sidebar sidebar sidebar";
+    }
+    .contenedor2{
+        grid-template-areas: "cont1 cont2 cont3"
+                             "widget-1 widget-2 widget-3";
+   }
+   
+}
+}
