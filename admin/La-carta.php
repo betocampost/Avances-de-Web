@@ -3,7 +3,7 @@ class Cart {
     protected $cart_contents = array();
     
     public function __construct(){
-        // get the shopping cart array from the session
+        
         $this->cart_contents = !empty($_SESSION['cart_contents'])?$_SESSION['cart_contents']:NULL;
 		if ($this->cart_contents === NULL){
 			// set some base values
@@ -12,15 +12,15 @@ class Cart {
     }
     
     /**
-	 * Cart Contents: Returns the entire cart array
+	 * 
 	 * @param	bool
 	 * @return	array
 	 */
 	public function contents(){
-		// rearrange the newest first
+		
 		$cart = array_reverse($this->cart_contents);
 
-		// remove these so they don't create a problem when showing the cart table
+		
 		unset($cart['total_items']);
 		unset($cart['cart_total']);
 
@@ -28,7 +28,7 @@ class Cart {
 	}
     
     /**
-	 * Get cart item: Returns a specific cart item details
+	 * 
 	 * @param	string	$row_id
 	 * @return	array
 	 */
@@ -39,7 +39,7 @@ class Cart {
 	}
     
     /**
-	 * Total Items: Returns the total item count
+	 * 
 	 * @return	int
 	 */
 	public function total_items(){
@@ -47,7 +47,7 @@ class Cart {
 	}
     
     /**
-	 * Cart Total: Returns the total price
+	 * 
 	 * @return	int
 	 */
 	public function total(){
@@ -55,7 +55,7 @@ class Cart {
 	}
     
     /**
-	 * Insert items into the cart and save it to the session
+	 * 
 	 * @param	array
 	 * @return	bool
 	 */
@@ -67,25 +67,25 @@ class Cart {
                 return FALSE;
             }else{
                 /*
-                 * Insert Item
+                 * 
                  */
-                // prep the quantity
+                //
                 $item['qty'] = (float) $item['qty'];
                 if($item['qty'] == 0){
                     return FALSE;
                 }
                 // prep the price
                 $item['price'] = (float) $item['price'];
-                // create a unique identifier for the item being inserted into the cart
+                // 
                 $rowid = md5($item['id']);
-                // get quantity if it's already there and add it on
+                // 
                 $old_qty = isset($this->cart_contents[$rowid]['qty']) ? (int) $this->cart_contents[$rowid]['qty'] : 0;
-                // re-create the entry with unique identifier and updated quantity
+                //
                 $item['rowid'] = $rowid;
                 $item['qty'] += $old_qty;
                 $this->cart_contents[$rowid] = $item;
                 
-                // save Cart Item
+                // 
                 if($this->save_cart()){
                     return isset($rowid) ? $rowid : TRUE;
                 }else{

@@ -34,8 +34,7 @@ include 'Configuracion.php';
                     <li role="presentation" class="active"><a href="index.php">Inicio</a></li>
                     <li role="presentation"><a href="VerCarta.php">Carrito de Compras</a></li>
                     <li role="presentation"><a href="Pagos.php">Pagar</a></li>
-                    <li role="presentation"><a href="https://www.configuroweb.com/46-aplicaciones-gratuitas-en-php-python-y-javascript/#Aplicaciones-gratuitas-en-PHP,-Python-y-Javascript">ConfiguroWeb</a></li>
-                </ul>
+                    </ul>
             </div>
 
             <div class="panel-body">
@@ -72,8 +71,6 @@ include 'Configuracion.php';
                 </div>
             </div>
         </div>
-        <div class="panel-footer">Para más desarrollos ingresa en <a href"https://www.configuroweb.com/46-aplicaciones-gratuitas-en-php-python-y-javascript/#Aplicaciones-gratuitas-en-PHP,-Python-y-Javascript">ConfiguroWeb</a></div>
-        <!--Panek cierra-->
 
     </div>
 </body>

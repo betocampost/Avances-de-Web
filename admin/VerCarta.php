@@ -5,7 +5,7 @@ $cart = new Cart;
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once("menu.html"); ?>
+
 <head>
     <title>View Cart - PHP Shopping Cart Tutorial</title>
     <meta charset="utf-8">
@@ -45,7 +45,7 @@ $cart = new Cart;
             <div class="panel-heading">
 
                 <ul class="nav nav-pills">
-                    <li role="presentation"><a href="consultas.php">Inicio</a></li>
+                    <li role="presentation"><a href="../index.php">Inicio</a></li>
                     <li role="presentation" class="active"><a href="VerCarta.php">Carrito de Compras</a></li>
                 </ul>
             </div>
@@ -90,7 +90,7 @@ $cart = new Cart;
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Volver a la tienda</a></td>
+                            <td><a href="tienda.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Volver a la tienda</a></td>
                             <td colspan="2"></td>
                             <?php if ($cart->total_items() > 0) { ?>
                                 <td class="text-center"><strong>Total <?php echo '$' . $cart->total() . ' MX'; ?></strong></td>
@@ -102,7 +102,7 @@ $cart = new Cart;
 
             </div>
           </div>
-        <!--Panek cierra-->
+        
 
     </div>
 </body>
