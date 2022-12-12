@@ -57,7 +57,10 @@ if ($conexion->connect_errno) {
         $sql = "INSERT INTO productos (idprod, nombre, categoria, descripccion,existencias,precio,sabor,imagen) VALUES('$id','$nom','$categoria','$descripcion','$existencia','$precio','$sabor','$imagen')";
         $conexion->query($sql); //aplicamos sentencia que inserta datos en la tabla usuarios de la base de datos
         if ($conexion->affected_rows >= 1) { //revisamos que se inserto un registro
-            echo '<script> alert("registro insertado") </script>';
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>REIGSTRO INSERTADO</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
         } //fin
 
         //continaumos con la consulta de datos a la tabla usuarios
@@ -65,7 +68,7 @@ if ($conexion->connect_errno) {
         $sql = 'select * from productos'; //hacemos cadena con la sentencia mysql que consulta todo el contenido de la tabla
         $resultado = $conexion->query($sql); //aplicamos sentencia
     
-        if ($resultado->num_rows) { //si la consulta genera registros
+        /*if ($resultado->num_rows) { //si la consulta genera registros
             echo '<div style="margin-left: 20px;">';
             echo '<table class="table table-hover" style="width:50%;">';
 
@@ -95,7 +98,7 @@ if ($conexion->connect_errno) {
             echo '</div>';
         } else {
             echo "no hay datos";
-        }
+        }*/
 
     } //fin 
 
@@ -117,6 +120,7 @@ if ($conexion->connect_errno) {
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="estilosa.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>ALTAS</title>
     <style>

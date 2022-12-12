@@ -38,7 +38,10 @@
             $sql = "DELETE FROM productos WHERE idprod='$eliminar' ";
             $conexion->query($sql);
             if($conexion->affected_rows >= 1){
-                echo '<br> Registro borrado <br>';
+                echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>REIGSTRO ELIMINADO</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
             }//fin
         
         }

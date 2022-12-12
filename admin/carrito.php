@@ -33,7 +33,7 @@ include 'Configuracion.php';
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="index.php">Inicio</a></li>
                     <li role="presentation"><a href="VerCarta.php">Carrito de Compras</a></li>
-                    <li role="presentation"><a href="Pagos.php">Pagar</a></li>
+                  
                     </ul>
             </div>
 

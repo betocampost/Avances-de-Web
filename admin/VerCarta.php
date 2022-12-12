@@ -12,6 +12,11 @@ $cart = new Cart;
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Hello, world!</title>
     <style>
         .container {
             padding: 20px;
@@ -40,14 +45,57 @@ $cart = new Cart;
 </head>
 
 <body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+      <div class="container px-5">
+          <a class="navbar-brand" href="../index.php">
+              <img src="../img/SucreNombre.png" style="width:30%;">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.php">Inicio</a></li>
+                  <li class="nav-item"><a class="nav-link" href="tienda.php">Tienda</a></li>
+                  <li class="nav-item"><a class="nav-link" href="../acercaDe.php">Acerca de</a></li>
+                  <li class="nav-item"><a class="nav-link" href="../ayuda.php">Ayuda</a></li>
+                  <li class="nav-item"><a class="nav-link" href="./contacto.php">Contáctanos</a></li>
+             
+                    <?php 
+                    // Comprobar si el usuario ya ha iniciado la sesión
+                  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ ?>
+                  
+                   <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn btn-outline-warning" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color:white; font-size:20px;">
+                            <span class="fa fa-user-circle"></span>
+                            <?php echo htmlspecialchars($_SESSION["username"]); /*style="color:white; background-color:#e9bd15"*/?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            
+                            <li><a class="dropdown-item " href="../reset-password.php">Cambia tu contraseña</a></li>
+                            <li><a class="dropdown-item "href="../logout.php">Cierra la sesión</a></li>
+                        </ul>
+                    </li>
+
+                 <?php }else{?>
+                    <li class="nav-item"><a class="nav-link" href="../login.php">Iniciar Sesion</a></li>
+                 <?php } ?>
+                    
+              </ul>
+          </div>
+      </div>
+  </nav>
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
 
-                <ul class="nav nav-pills">
-                    <li role="presentation"><a href="../index.php">Inicio</a></li>
+            <ul class="nav nav-pills">
+                    <li role="presentation"><a href="tienda.php">Inicio</a></li>
                     <li role="presentation" class="active"><a href="VerCarta.php">Carrito de Compras</a></li>
-                </ul>
+                    <li role="presentation" ><a href="catpasteles.php">CATEGORIA PASTELES</a></li>
+                    <li role="presentation"><a href="catpanques.php">CATEGORIA PANQUES</a></li>
+
+            </ul>
             </div>
 
             <div class="panel-body">
@@ -105,6 +153,15 @@ $cart = new Cart;
         
 
     </div>
+<footer class="py-5 bg-dark text-white-50">
+    <div class="container px-5">
+        <div class="social d-flex justify-content-center ">
+            <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <br>
+        <p class="m-0 text-center">Copyright &copy; Your Website 2022</p>
+    </div>
+</footer>
 </body>
 
 </html>
